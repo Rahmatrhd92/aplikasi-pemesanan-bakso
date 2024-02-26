@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/service.css">
+    <title>Service</title>
+</head>
+<body>
+   
+   
+
+    
+
+         <!-- DAFTAR MENU MAKANAN -->
+    <div class="container">
+      <h1>SERVICE</h1>
+    <div class="daftarMenuMakanan">
+      <h2>NOMOR MEJA</h2>
+        <div class="box1">
+          <h1>001</h5>
+        </div>
+        <div class="box2">
+           
+            <h5 class="total-price">
+              <span>Sudah Diantar</span>
+              <span><input type="checkbox"></span>
+              <br>
+              <span>Belum Diantar</span>
+              <span><input type="checkbox"></span>
+            </h5>
+           
+        </div>
+
+
+        <div class="box1">
+          <h1>002</h5>
+      </div>
+      <div class="box2">
+        <span>Sudah Diantar</span>
+        <span><input type="checkbox"></span>
+        <br>
+        <span>Belum Diantar</span>
+        <span><input type="checkbox"></span>
+      </div>
+
+
+
+      <div class="box1">
+        <h1>003</h5>
+      </div>
+      <div class="box2">
+          <h5 class="total-price">
+              <span>Sudah Diantar</span>
+              <span><input type="checkbox"></span>
+              <br>
+              <span>Belum Diantar</span>
+              <span><input type="checkbox"></span>
+          </h5>
+          
+      </div>
+
+
+      <div class="box1">
+        <h1>004</h5>
+    </div>
+    <div class="box2">
+      <span>Sudah Diantar</span>
+      <span><input type="checkbox"></span>
+      <br>
+      <span>Belum Diantar</span>
+      <span><input type="checkbox"></span>
+    </div>
+
+        
+</div>
+<script>
+    //button tambah
+    document.querySelector(".minus-btn").setAttribute("disablet", "disablet");
+
+    var valueCount
+
+    //buat penjumlahan price
+      var price=document.getElementById("price").innerText;
+
+      function priceTotal(){
+        var total = valueCount * price;
+        document.getElementById("price").innerText = total
+
+      }
+
+    document.querySelector(".plus-btn").addEventListener("click", function()
+    {
+      valueCount = document.getElementById("quantity").value;
+
+      valueCount++;
+
+      document.getElementById("quantity").value = valueCount
+
+      if(valueCount > 1){
+       document.querySelector(".minus-btn").removeAttribute("disabled");
+       document.querySelector(".minus-btn").classList.remove("disabled");
+  }
+
+  // panggil harga function
+     priceTotal()
+
+      //total semua
+
+  function priceAll(){
+        var totalSemua = valueCount * price;
+        document.getElementById("totalSemua").innerText = totalSemua
+
+      }
+
+    priceAll()
+
+    })
+
+
+     //button kurang
+document.querySelector(".minus-btn").setAttribute("disablet", "disablet");
+
+var valueCount
+document.querySelector(".minus-btn").addEventListener("click", function()
+{
+  valueCount = document.getElementById("quantity").value;
+
+  valueCount--;
+
+  document.getElementById("quantity").value = valueCount
+
+  if(valueCount ==1){
+    document.querySelector(".minus-btn").setAttribute("disabled", "disabled")
+  }
+
+  priceTotal()
+
+  //total semua
+
+  function priceAll(){
+        var totalSemua = valueCount * price;
+        document.getElementById("totalSemua").innerText = totalSemua
+
+      }
+
+    priceAll()
+
+})
+
+
+
+
+
+
+</script>
+</body>
+</html>

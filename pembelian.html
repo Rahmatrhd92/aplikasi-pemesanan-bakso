@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style detail.css">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="hero">
+        <img src="./image/Frame 1.png" alt="" srcset="">
+    </div>
+
+    <div class="navbarnav">
+        <h3>Bakso Wonogiri</h3>
+        <h3>DAFTAR MENU</h3>
+    </div>
+
+         <!-- DAFTAR MENU MAKANAN -->
+    <div class="container">
+    <div class="daftarMenuMakanan">
+        <div class="box1">
+            <img src="./image/baksourat.png" alt="" srcset="">
+        </div>
+        <div class="box2">
+            <h5 id="menu">Bakso Urat</h5>
+            <h5 class="total-price">
+                <span>Rp. </span>
+                <span id="price">15000</span>
+            </h5>
+            <button style="cursor: pointer;" class="btn minus-btn disablet" type="button">-</button>
+            <input type="text" id="quantity" value="1">
+            <button style="cursor: pointer;" class="btn plus-btn" type="button">+</button> 
+        </div>
+
+        <h5 class="total-semua">
+            <span> TOTAL SEMUA Rp: </span>
+            <span id="totalSemua"></span> 
+            </h5>
+
+        </h5> 
+            <button style="background-color: #51C933; width: 100px; height: 40px; color: aliceblue;" class="btn"><a href="index.html">BATAL</a></button>
+            <button style="background-color: #51C933; width: 100px; height: 40px; color: aliceblue;" id="btn">BAYAR</button>
+        </div>
+
+    
+</div>
+<script>
+    //button tambah
+    document.querySelector(".minus-btn").setAttribute("disablet", "disablet");
+
+    var valueCount
+
+    //buat penjumlahan price
+      var price=document.getElementById("price").innerText;
+
+      function priceTotal(){
+        var total = valueCount * price;
+        document.getElementById("price").innerText = total
+
+      }
+
+    document.querySelector(".plus-btn").addEventListener("click", function()
+    {
+      valueCount = document.getElementById("quantity").value;
+
+      valueCount++;
+
+      document.getElementById("quantity").value = valueCount
+
+      if(valueCount > 1){
+       document.querySelector(".minus-btn").removeAttribute("disabled");
+       document.querySelector(".minus-btn").classList.remove("disabled");
+  }
+
+  // panggil harga function
+     priceTotal()
+
+      //total semua
+
+  function priceAll(){
+        var totalSemua = valueCount * price;
+        document.getElementById("totalSemua").innerText = totalSemua
+
+      }
+
+    priceAll()
+
+    })
+
+
+     //button kurang
+document.querySelector(".minus-btn").setAttribute("disablet", "disablet");
+
+var valueCount
+document.querySelector(".minus-btn").addEventListener("click", function()
+{
+  valueCount = document.getElementById("quantity").value;
+
+  valueCount--;
+
+  document.getElementById("quantity").value = valueCount
+
+  if(valueCount ==1){
+    document.querySelector(".minus-btn").setAttribute("disabled", "disabled")
+  }
+
+  priceTotal()
+
+  //total semua
+
+  function priceAll(){
+        var totalSemua = valueCount * price;
+        document.getElementById("totalSemua").innerText = totalSemua
+
+      }
+
+    priceAll()
+
+})
+
+
+
+
+
+
+</script>
+</body>
+</html>
